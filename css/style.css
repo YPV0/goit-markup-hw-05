@@ -8,16 +8,6 @@
   --section-text-color: #434455;
 }
 
-@keyframes expand {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 100%;
-  }
-}
-
 a {
   text-decoration: none;
 }
@@ -120,23 +110,19 @@ img {
   transition-property: color;
 }
 
+.nav-link.active {
+  color: #404bbf;
+}
+
 .nav-link.active::after {
   content: "";
   position: absolute;
-  margin-top: 20px;
+  bottom: -1px;
   display: block;
   width: 100%;
   height: 4px;
   background: #404bbf;
   border-radius: 2px;
-  animation-name: expand;
-  animation-duration: 500ms;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-iteration-count: 1;
-}
-
-.nav-link.active::after {
-  width: 100%;
 }
 
 .nav-link:hover,
@@ -468,8 +454,7 @@ footer .container {
   cursor: pointer;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: box-shadow, background-color, color, border-radius,
-    border;
+  transition-property: box-shadow, background-color, color, border;
 }
 .menu-button:hover,
 .menu-button:focus {
@@ -477,7 +462,6 @@ footer .container {
   color: var(--secondary-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
   border: 1px solid #404bbf;
 }
 
@@ -546,12 +530,16 @@ footer .container {
   background-color: rgba(46, 47, 66, 0.4);
   width: 100%;
   height: 100%;
+  opacity: 1;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: opacity;
 }
 
 .is-hidden {
   visibility: hidden;
-  opacity: 0;
   pointer-events: none;
+  opacity: 0;
 }
 
 .modal {
@@ -584,13 +572,22 @@ footer .container {
   transition-property: background-color;
 }
 
-.modal-cross-button:hover {
+.modal-cross-button:hover,
+.modal-cross-button:focus {
   background-color: #404bbf;
 }
 
 .modal-icon-cross {
   width: 8px;
   height: 8px;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+}
+
+.modal-cross-button:hover .modal-icon-cross,
+.modal-cross-button:focus .modal-icon-cross {
+  fill: #fff;
 }
 
 /*================================ MODAL ===========================*/
